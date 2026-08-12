@@ -21,7 +21,8 @@ from collections.abc import Callable, Iterable
 from typing import Any, TypeVar
 
 
-TMDB_BASE_URL = "https://api.themoviedb.org/3"
+DEFAULT_TMDB_BASE_URL = "https://api.themoviedb.org/3"
+TMDB_BASE_URL = os.environ.get("TMDB_BASE_URL", DEFAULT_TMDB_BASE_URL).rstrip("/")
 YOUTUBE_OEMBED_URL = "https://www.youtube.com/oembed"
 YOUTUBE_FEED_URL = "https://www.youtube.com/feeds/videos.xml"
 DEFAULT_CHANNELS_PATH = pathlib.Path(__file__).with_name("recent-trailer-channels.json")
@@ -56,6 +57,10 @@ R = TypeVar("R")
 
 def log(message: str) -> None:
     print(message, file=sys.stderr, flush=True)
+
+
+def tmdb_token_is_required(base_url: str) -> bool:
+    return urllib.parse.urlparse(base_url).hostname == "api.themoviedb.org"
 
 
 def parse_args() -> argparse.Namespace:
@@ -667,8 +672,8 @@ def merge_trailers(
 def main() -> int:
     arguments = parse_args()
     token = os.environ.get("TMDB_READ_ACCESS_TOKEN", "").strip()
-    if not token:
-        log("TMDB_READ_ACCESS_TOKEN is required.")
+    if tmdb_token_is_required(TMDB_BASE_URL) and not token:
+        log("TMDB_READ_ACCESS_TOKEN is required when querying TMDB directly.")
         return 2
     now = dt.datetime.now(dt.UTC)
     movies = load_movies(arguments, token)

@@ -22,7 +22,11 @@ jobs:
       - name: Generate feed
         env:
           TMDB_READ_ACCESS_TOKEN: ${{ secrets.TMDB_READ_ACCESS_TOKEN }}
+          WATCHED_GATEWAY_BASE_URL: ${{ secrets.WATCHED_GATEWAY_BASE_URL }}
         run: |
+          if [[ -n "$WATCHED_GATEWAY_BASE_URL" ]]; then
+            export TMDB_BASE_URL="${WATCHED_GATEWAY_BASE_URL%/}/v1/tmdb/3"
+          fi
           next_feed="$(mktemp)"
           _generator/generate-recent-trailer-feed.sh \
             --previous-feed recent-trailers.json \
@@ -34,6 +38,25 @@ jobs:
             and (all(.trailers[]; .videoID and .tmdbID and .movieTitle and .publishedAt))
           ' "$next_feed" >/dev/null
           mv "$next_feed" recent-trailers.json
+
+      - name: Publish feed to gateway
+        env:
+          WATCHED_GATEWAY_BASE_URL: ${{ secrets.WATCHED_GATEWAY_BASE_URL }}
+          TRAILER_PUBLISH_TOKEN: ${{ secrets.TRAILER_PUBLISH_TOKEN }}
+        run: |
+          if [[ -z "$WATCHED_GATEWAY_BASE_URL" ]]; then
+            echo "No gateway is configured; GitHub Pages remains the feed origin."
+            exit 0
+          fi
+          if [[ -z "$TRAILER_PUBLISH_TOKEN" ]]; then
+            echo "TRAILER_PUBLISH_TOKEN must be configured with WATCHED_GATEWAY_BASE_URL." >&2
+            exit 2
+          fi
+          curl --fail --silent --show-error --retry 3 \
+            --request PUT "${WATCHED_GATEWAY_BASE_URL%/}/v1/admin/recent-trailers" \
+            --header "Authorization: Bearer $TRAILER_PUBLISH_TOKEN" \
+            --header 'Content-Type: application/json' \
+            --data-binary '@recent-trailers.json'
 
       - name: Publish changed feed
         run: |
