@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-12T17:57:51Z",
+  "generatedAt": "2026-08-12T18:00:48Z",
   "sourceStats": {
     "tmdbMoviesSampled": 1906,
-    "tmdbTrailers": 8684,
+    "tmdbTrailers": 8687,
     "trustedChannelsPolled": 202,
     "channelUploadsConsidered": 377,
     "channelTrailersMatched": 251,
