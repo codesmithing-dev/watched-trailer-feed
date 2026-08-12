@@ -1,0 +1,49 @@
+name: Refresh Recent Trailer Feed
+
+on:
+  schedule:
+    - cron: "17 */4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: recent-trailer-feed
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate feed
+        env:
+          TMDB_READ_ACCESS_TOKEN: ${{ secrets.TMDB_READ_ACCESS_TOKEN }}
+        run: |
+          next_feed="$(mktemp)"
+          _generator/generate-recent-trailer-feed.sh \
+            --previous-feed recent-trailers.json \
+            >"$next_feed"
+          jq -e '
+            .schemaVersion == 1
+            and (.generatedAt | type == "string")
+            and (.trailers | type == "array")
+            and (all(.trailers[]; .videoID and .tmdbID and .movieTitle and .publishedAt))
+          ' "$next_feed" >/dev/null
+          mv "$next_feed" recent-trailers.json
+
+      - name: Publish changed feed
+        run: |
+          if git diff --quiet -- recent-trailers.json; then
+            echo "The generated feed is unchanged."
+            exit 0
+          fi
+          generated_at="$(jq -r '.generatedAt' recent-trailers.json)"
+          git config user.name "Watched Trailer Feed"
+          git config user.email "actions@users.noreply.github.com"
+          git add recent-trailers.json
+          git commit -m "Publish trailer feed $generated_at"
+          git push
