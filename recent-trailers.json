@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-12T12:10:07Z",
+  "generatedAt": "2026-09-12T15:31:16Z",
   "sourceStats": {
     "tmdbMoviesSampled": 2000,
-    "tmdbTrailers": 9304,
+    "tmdbTrailers": 8849,
     "trustedChannelsPolled": 219,
-    "channelUploadsConsidered": 425,
-    "channelTrailersMatched": 283,
+    "channelUploadsConsidered": 421,
+    "channelTrailersMatched": 280,
     "previousTrailersRetainedForMerge": 100
   },
   "trailers": [
@@ -30,6 +30,23 @@
       "trailerName": "Official Trailer",
       "source": "channel",
       "official": true
+    },
+    {
+      "tmdbID": 1423191,
+      "movieTitle": "Resident Evil",
+      "originalTitle": "Resident Evil",
+      "overview": "Medical courier Bryan unwittingly finds himself fighting for survival as one fateful, horrifying night collapses around him in chaos.",
+      "releaseDate": "2026-09-18",
+      "posterPath": "/qku2uWSoJ9amQV5MWo1Eek29iji.jpg",
+      "backdropPath": "/3icyRAqgakNcQn6aDVz9libFmBA.jpg",
+      "popularity": 41.5839,
+      "voteAverage": 0.0,
+      "voteCount": 0,
+      "originalLanguage": "en",
+      "videoID": "9Gnh6q5xwwc",
+      "trailerName": "You don't need to ask me twice.",
+      "publishedAt": "2026-09-12T09:30:16.000Z",
+      "source": "tmdb"
     },
     {
       "tmdbID": 1767072,
@@ -702,9 +719,9 @@
       "overview": "In 1949, German writer Thomas Mann and his daughter Erika embark on a road trip across a Germany in ruins, from US-dominated Frankfurt to Soviet-controlled Weimar.",
       "releaseDate": "2026-10-23",
       "posterPath": "/oNejN1l69nBF8LdQwy5FkAQZT44.jpg",
-      "backdropPath": "/sSyeRXg3posPAF8XNTHtDurR7sB.jpg",
+      "backdropPath": "/zKoBjLggS4v22a9ZiCvmLaZrht7.jpg",
       "popularity": 11.7188,
-      "voteAverage": 7.056,
+      "voteAverage": 7.1,
       "voteCount": 18,
       "originalLanguage": "pl",
       "videoID": "05vc4PTKxFM",
@@ -1500,7 +1517,7 @@
       "overview": "Sanjay Vishwanath is an acclaimed professional handgunner in his 40s with a major stake in fame and wealth. When he comes across a woman named Maddy in her 20s, their dynamic poses many issues that they must come to terms with.",
       "releaseDate": "2026-08-14",
       "posterPath": "/mLsvCffzpxxDwC7yVLJSLLjgzoq.jpg",
-      "backdropPath": "/1qPphJz0o0ILae6rIgDK9xoAAvH.jpg",
+      "backdropPath": "/nfNaAiiILjYRc2CKkId1ZfPTtlh.jpg",
       "popularity": 78.3476,
       "voteAverage": 7.3,
       "voteCount": 15,
@@ -1523,8 +1540,8 @@
       "posterPath": "/fgSm5ylwiXbIHn8UbUXDjk9RRu4.jpg",
       "backdropPath": "/yBDxqDB29kpH9VojTytjGWBgmdJ.jpg",
       "popularity": 69.7068,
-      "voteAverage": 6.692,
-      "voteCount": 26,
+      "voteAverage": 6.63,
+      "voteCount": 27,
       "originalLanguage": "en",
       "videoID": "pu2qcpIn520",
       "trailerName": "Only In Cinemas Now",
@@ -2051,23 +2068,6 @@
       "trailerName": "Official Trailer",
       "source": "channel",
       "official": true
-    },
-    {
-      "tmdbID": 1700,
-      "movieTitle": "Misery",
-      "originalTitle": "Misery",
-      "overview": "After an accident, acclaimed novelist Paul Sheldon is rescued by a nurse who claims to be his biggest fan.  Her obsession takes a dark turn when she holds him captive in her remote Colorado home and forces him to write back to life the popular literary character he killed off.",
-      "releaseDate": "1990-11-30",
-      "posterPath": "/klPO5oh1LOxiPpdDXZo1ADgpKcw.jpg",
-      "backdropPath": "/rUAn3Ul1tL7JXMjZ951UOI3F0UA.jpg",
-      "popularity": 10.2755,
-      "voteAverage": 7.754,
-      "voteCount": 5396,
-      "originalLanguage": "en",
-      "videoID": "qM20YWFOGgY",
-      "trailerName": "Official Sizzle",
-      "publishedAt": "2026-09-07T14:00:03.000Z",
-      "source": "tmdb"
     }
   ]
 }
