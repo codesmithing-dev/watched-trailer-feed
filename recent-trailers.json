@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-17T15:34:02Z",
+  "generatedAt": "2026-10-17T18:30:19Z",
   "sourceStats": {
     "tmdbMoviesSampled": 2000,
-    "tmdbTrailers": 9367,
+    "tmdbTrailers": 9222,
     "trustedChannelsPolled": 225,
-    "channelUploadsConsidered": 419,
-    "channelTrailersMatched": 274,
+    "channelUploadsConsidered": 414,
+    "channelTrailersMatched": 270,
     "previousTrailersRetainedForMerge": 100
   },
   "trailers": [
@@ -362,7 +362,7 @@
       "overview": "Pulled back into the fight when the Beekeeper organization goes rogue and sets its sights on controlling the government, Clay must take on the very group that made him.",
       "releaseDate": "2027-01-15",
       "posterPath": "/kYr0WsY1SEGfpUrLKSpvNmtoXQ3.jpg",
-      "backdropPath": "/smdkH5T2xiK30dHWPm2LfJcdPME.jpg",
+      "backdropPath": "/tKTCTuG63KFQD82M5fvQbfO4fra.jpg",
       "popularity": 12.8552,
       "voteAverage": 0.0,
       "voteCount": 0,
@@ -780,7 +780,7 @@
       "posterPath": "/czsyPHosFNbh4PPqXfqWu1aBXnA.jpg",
       "backdropPath": "/nkINWVL8x1KwdpO0dUbYhS3Y1iP.jpg",
       "popularity": 47.0741,
-      "voteAverage": 7.372,
+      "voteAverage": 7.4,
       "voteCount": 39,
       "originalLanguage": "en",
       "videoID": "hrHR1QIgaXA",
